@@ -26,7 +26,7 @@ const Register = () => {
 
         createNewUser(email, password)
             .then(result => {
-                console.log(result.user);
+               
                 
                 result.user.updateProfile({
                     displayName: name,

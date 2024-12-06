@@ -20,7 +20,7 @@ const Login = () => {
 
     signInUser(email, password)
       .then((result) => {
-        console.log(result.user); 
+         
         setLoading(false);  
         toast.success('Login successful!');  
         navigate('/');  
@@ -38,7 +38,7 @@ const Login = () => {
 
     signInWithGoogle()
       .then((result) => {
-        console.log(result.user); 
+       
         setLoading(false);        
         toast.success('Login successful!'); 
         navigate('/');           

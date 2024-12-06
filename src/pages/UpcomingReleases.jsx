@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 
 const UpcomingReleases = () => {
   const games = [
-    { id: 1, name: 'Game 1', releaseDate: 'March 25, 2024', imgUrl: '../../public/pubg.jpg' },
-    { id: 2, name: 'Game 2', releaseDate: 'April 10, 2024', imgUrl: '../../public/coc.jpeg' },
-    { id: 3, name: 'Game 3', releaseDate: 'May 5, 2024', imgUrl: '../../public/combuat.jpg' },
+    { id: 1, name: 'Game 1', releaseDate: 'March 25, 2024', imgUrl: '/public/pubg.jpg' },
+    { id: 2, name: 'Game 2', releaseDate: 'April 10, 2024', imgUrl: '/public/coc.jpeg' },
+    { id: 3, name: 'Game 3', releaseDate: 'May 5, 2024', imgUrl: '/public/combuat.jpg' },
   ];
 
   return (

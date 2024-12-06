@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import AuthProvider from "./AuthProvider/AuthProvider.jsx";
 import MainLayout from "./components/MainLayout.jsx";
 import Home from "./pages/Home.jsx";
@@ -73,8 +73,12 @@ const router = createBrowserRouter([
         element: <GameWatchlist></GameWatchlist>,
       },
       {
+        path:'/404',
+        element:<NotFound></NotFound>
+      },
+      {
         path: "*",
-        element: <NotFound />,
+        element: <Navigate to="/404"></Navigate>,
       },
     ],
   },

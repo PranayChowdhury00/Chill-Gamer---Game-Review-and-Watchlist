@@ -17,7 +17,7 @@ const MyReviews = () => {
     const email = user.email;
 
    
-    fetch(`http://localhost:5000/myReviews`, {
+    fetch(`https://server-site-manger.vercel.app/myReviews`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -58,8 +58,8 @@ const MyReviews = () => {
   }
 
   const handleDelete = (id) => {
-    console.log(id);
-    fetch(`http://localhost:5000/myReviews/${id}`, {
+    
+    fetch(`https://server-site-manger.vercel.app/myReviews/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

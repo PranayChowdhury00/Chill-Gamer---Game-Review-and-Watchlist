@@ -6,11 +6,10 @@ const GameWatchlist = () => {
   const [animationData, setAnimationData] = useState(null);
 
   useEffect(() => {
-    
     fetch("/loader.json")
       .then((response) => response.json())
       .then((data) => {
-        setAnimationData(data);  
+        setAnimationData(data);
       })
       .catch((error) => {
         console.error("Error loading animation data:", error);
@@ -22,14 +21,13 @@ const GameWatchlist = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (loader) return; 
+    if (loader) return;
     if (!user?.email) {
-      setLoading(false); 
+      setLoading(false);
       return;
     }
 
-   
-    fetch(`http://localhost:5000/myWatchlist?email=${user.email}`)
+    fetch(`https://server-site-manger.vercel.app/myWatchlist?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setWatchlist(data);
@@ -60,6 +58,7 @@ const GameWatchlist = () => {
         <p>No items in your watchlist yet.</p>
       ) : (
         <div className="overflow-x-auto">
+          
           <table className="table w-full border-collapse">
             <thead>
               <tr>
@@ -79,7 +78,7 @@ const GameWatchlist = () => {
                   <td>{item.description}</td>
                   <td>
                     <img
-                      src={item.gameCover || "No Image"}
+                      src={item.gameCover || "/path/to/default-image.jpg"}
                       alt={item.gameTitle}
                       className="w-16 h-16 object-cover"
                     />

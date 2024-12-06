@@ -29,7 +29,7 @@ const AddReview = () => {
       userName: user.displayName,
     };
 
-    fetch("http://localhost:5000/addReview", {
+    fetch("https://server-site-manger.vercel.app/addReview", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

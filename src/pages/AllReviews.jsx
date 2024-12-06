@@ -9,14 +9,14 @@ const AllReviews = () => {
     field: "rating", 
     order: "asc", 
   });
-  const [selectedGenre, setSelectedGenre] = useState("all"); 
+  const [selectedGenre, setSelectedGenre] = useState("all");
 
   useEffect(() => {
-    fetch("http://localhost:5000/addReview")
+    fetch("https://server-site-manger.vercel.app/addReview")
       .then((response) => response.json())
       .then((data) => {
         setReviews(data);
-        setFilteredReviews(data); 
+        setFilteredReviews(data);
         setLoading(false);
       })
       .catch((error) => {
@@ -25,7 +25,6 @@ const AllReviews = () => {
       });
   }, []);
 
- 
   const sortReviews = (field, order) => {
     const sortedReviews = [...filteredReviews].sort((a, b) => {
       if (field === "rating") {
@@ -38,23 +37,21 @@ const AllReviews = () => {
     setFilteredReviews(sortedReviews);
   };
 
-  
   const handleSortChange = (e) => {
     const [field, order] = e.target.value.split("-");
     setSortOption({ field, order });
     sortReviews(field, order);
   };
 
-  
   const handleGenreChange = (e) => {
     const genre = e.target.value;
     setSelectedGenre(genre);
 
     if (genre === "all") {
-      setFilteredReviews(reviews); 
+      setFilteredReviews(reviews);
     } else {
       const filtered = reviews.filter((review) => review.genre === genre);
-      setFilteredReviews(filtered); 
+      setFilteredReviews(filtered);
     }
   };
 
@@ -67,21 +64,19 @@ const AllReviews = () => {
     );
   }
 
-  
   const genres = ["all", ...new Set(reviews.map((review) => review.genre))];
 
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-4xl text-center font-bold mb-8">All Reviews</h1>
 
-   
-      <div className="flex justify-between mb-4">
-        <div className="flex items-center space-x-4">
+      <div className="flex justify-between mb-4 flex-col sm:flex-row">
+        <div className="flex items-center space-x-4 mb-4 sm:mb-0">
           <label className="text-lg">Filter by Genre:</label>
           <select
             onChange={handleGenreChange}
             value={selectedGenre}
-            className="select select-bordered w-48"
+            className="select select-bordered w-full sm:w-48"
           >
             {genres.map((genre) => (
               <option key={genre} value={genre}>
@@ -91,10 +86,9 @@ const AllReviews = () => {
           </select>
         </div>
 
-       
         <select
           onChange={handleSortChange}
-          className="select select-bordered w-48"
+          className="select select-bordered w-full sm:w-48"
           value={`${sortOption.field}-${sortOption.order}`}
         >
           <option value="rating-asc">Rating: Low to High</option>
@@ -109,7 +103,7 @@ const AllReviews = () => {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredReviews.map((review) => (
-            <div key={review._id} className="card w-80 bg-base-100 shadow-xl">
+            <div key={review._id} className="card w-full bg-base-100 shadow-xl">
               <figure>
                 <img
                   src={review.gameCover || "/path/to/placeholder-image.jpg"}

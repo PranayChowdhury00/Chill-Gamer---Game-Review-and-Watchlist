@@ -18,7 +18,7 @@ const ReviewDetails = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:5000/addReview/${id}`)
+    fetch(`https://server-site-manger.vercel.app/addReview/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setReview(data);
@@ -39,7 +39,7 @@ const ReviewDetails = () => {
   }
 
   const handleAddToWatchlist = () => {
-    fetch("http://localhost:5000/addToWatchlist", {
+    fetch("https://server-site-manger.vercel.app/addToWatchlist", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -58,7 +58,7 @@ const ReviewDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        
         navigate("/watchlist");
       })
       .catch((error) => console.error("Error adding to watchlist:", error));

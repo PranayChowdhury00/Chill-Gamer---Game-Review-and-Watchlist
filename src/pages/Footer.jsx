@@ -23,7 +23,7 @@ const Footer = () => {
           </li>
         </ul>
 
-        
+       
         <div className="flex justify-center space-x-6 sm:space-x-8">
           <a href="#" className="text-xl hover:text-blue-600">
             <FaFacebook />

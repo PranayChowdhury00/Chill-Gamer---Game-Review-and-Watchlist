@@ -17,7 +17,7 @@ const UpdateReview = () => {
 
   useEffect(() => {
     
-    fetch(`http://localhost:5000/updateReview/${id}`)
+    fetch(`https://server-site-manger.vercel.app/updateReview/${id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data) {
@@ -44,7 +44,7 @@ const UpdateReview = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`http://localhost:5000/updateReview/${id}`, {
+    fetch(`https://server-site-manger.vercel.app/updateReview/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
