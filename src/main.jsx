@@ -62,7 +62,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/myReviews",
-        element: <MyReviews></MyReviews>,
+        element: <PrivateRoute>
+          <MyReviews></MyReviews>
+        </PrivateRoute>
       },
       {
         path: "/updateReview/:id",
@@ -70,7 +72,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/watchlist",
-        element: <GameWatchlist></GameWatchlist>,
+        element: <PrivateRoute>
+          <GameWatchlist></GameWatchlist>
+        </PrivateRoute>
       },
       {
         path:'/404',
