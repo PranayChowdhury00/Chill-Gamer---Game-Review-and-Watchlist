@@ -65,7 +65,7 @@ const ReviewDetails = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center p-4 bg-base-200">
+    <div className="flex flex-col  justify-center items-center p-4 bg-base-100">
       <h1 className="text-4xl font-bold mb-4">{review.title}</h1>
       <img
         src={review.gameCover || "No Img"}

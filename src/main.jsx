@@ -1,7 +1,11 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import AuthProvider from "./AuthProvider/AuthProvider.jsx";
 import MainLayout from "./components/MainLayout.jsx";
 import Home from "./pages/Home.jsx";
@@ -17,7 +21,6 @@ import ReviewDetails from "./pages/ReviewDetails.jsx";
 import MyReviews from "./pages/MyReviews.jsx";
 import UpdateReview from "./pages/UpdateReview.jsx";
 import GameWatchlist from "./pages/GameWatchlist.jsx";
-import ThemeProvider from "./ThemeProvider/ThemeProvider.jsx";
 
 const router = createBrowserRouter([
   {
@@ -26,11 +29,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: (
-          <ThemeProvider>
-            <Home />
-          </ThemeProvider>
-        ),
+        element: <Home />,
       },
       {
         path: "/login",
@@ -62,9 +61,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/myReviews",
-        element: <PrivateRoute>
-          <MyReviews></MyReviews>
-        </PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <MyReviews></MyReviews>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/updateReview/:id",
@@ -72,13 +73,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/watchlist",
-        element: <PrivateRoute>
-          <GameWatchlist></GameWatchlist>
-        </PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <GameWatchlist></GameWatchlist>
+          </PrivateRoute>
+        ),
       },
       {
-        path:'/404',
-        element:<NotFound></NotFound>
+        path: "/404",
+        element: <NotFound></NotFound>,
       },
       {
         path: "*",

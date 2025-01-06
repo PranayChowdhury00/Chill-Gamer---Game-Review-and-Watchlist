@@ -10,6 +10,7 @@ const MainLayout = () => {
 
     return (
         <div>
+            
             {!isNotFoundPage && <NavBar />}
             <Outlet />
             {!isNotFoundPage && <Footer />}

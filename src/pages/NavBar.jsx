@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import ThemeProvider from "../ThemeProvider/ThemeProvider";
 
 const NavBar = () => {
   const { user, signOutUser } = useContext(AuthContext);
@@ -13,7 +14,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 shadow-md px-4">
+    <div className="navbar sticky top-0 z-20 bg-base-100 shadow-md px-4">
       {/* Navbar Left */}
       <div className="navbar-start">
         <img
@@ -72,6 +73,7 @@ const NavBar = () => {
 
       {/* Navbar Right */}
       <div className="navbar-end">
+        <ThemeProvider></ThemeProvider>
         {!user ? (
           <ul className="menu menu-horizontal">
             <li>
