@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { FaSun, FaMoon } from "react-icons/fa"; // Importing icons from react-icons
+
 const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState("light");
 
-  
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
@@ -10,11 +11,10 @@ const ThemeProvider = ({ children }) => {
     }
   }, []);
 
-  
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
-    localStorage.setItem("theme", newTheme); 
+    localStorage.setItem("theme", newTheme);
   };
 
   useEffect(() => {
@@ -25,9 +25,9 @@ const ThemeProvider = ({ children }) => {
     <div>
       <button
         onClick={toggleTheme}
-        className="btn btn-primary m-4"
+        className="btn btn-primary m-4 flex items-center justify-center"
       >
-        Switch to {theme === "light" ? "Dark" : "Light"} Mode
+        {theme === "light" ? <FaMoon size={20} /> : <FaSun size={20} />}
       </button>
       {children}
     </div>
