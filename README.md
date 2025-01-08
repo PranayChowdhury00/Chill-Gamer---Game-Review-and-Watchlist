@@ -4,6 +4,7 @@
 Welcome to **Chill Gamer**, your go-to platform for game reviews, ratings, and a personalized watchlist to keep track of your favorite games!
 
 **Live Site URL**: https://assinment-10-54ca9.web.app
+ ![Image Alt](https://github.com/PranayChowdhury00/Chill-Gamer---Game-Review-and-Watchlist/blob/main/assinment-10-54ca9.web.app_%20(1).png?raw=true)
 
 ## Features:
 - **Browse Game Reviews**: Access detailed reviews on a variety of games, including ratings, genres, and descriptions.
